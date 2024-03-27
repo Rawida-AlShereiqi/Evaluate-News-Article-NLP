@@ -1,0 +1,47 @@
+$color: #676a50;
+footer {
+    background-color: $color; /* Dark background color */
+    color: #fff; /* White text color */
+    padding: 10px; /* Add padding to the footer */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    
+.fnav{
+    display: inline-block; /* Display as inline block to center horizontally */
+    margin-bottom: 10px;
+}
+
+.fnav ul {
+    list-style: none; /* Remove default list styles */
+    padding: 10px; /* Remove default padding */
+    margin: 0px; /* Remove default margin */
+}
+
+.fnav ul li {
+    display: inline-block; /* Display list items horizontally */
+    margin-right: 20px; /* Add spacing between list items */
+}
+
+.fnav ul li:last-child {
+    margin-right: 5px; /* Remove margin from the last list item */
+}
+
+.fnav ul li a {
+    color: #fffdfd; /* White text color for links */
+    text-decoration:line-through; /* Remove underline from links */
+    font-size: 20px; /* Adjust font size */
+}
+
+.fnav ul li a:hover {
+    color: #ffc107; /* Change link color on hover */
+}
+
+.copyright {
+    display: block; /* Ensure it's displayed as block to occupy full width */
+    margin-top: 10px; 
+}
+ 
+}
+
