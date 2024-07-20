@@ -1,12 +1,12 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin"),
- { CleanWebpackPlugin } = require('clean-webpack-plugin'),
- CssMinimizerPlugin = require("css-minimizer-webpack-plugin"),
- webpack = require("webpack"),
- path = require("path");
-
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const WorkboxPlugin = require('workbox-webpack-plugin');
+const webpack = require("webpack");
+const path = require("path");
 
 module.exports = {
-  entry: "./src/client/index.js",
+  entry: ["webpack-dev-server/client", "./src/client/index.js"],
   mode: "development",
   devtool: 'source-map',
   output: {
@@ -41,6 +41,10 @@ module.exports = {
       protectWebpackAssets: false,
       cleanOnceBeforeBuildPatterns: ['*/', '!api', '!api/*/'],
     }),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+  }),
   ],
   optimization: {
     minimizer: [
@@ -48,4 +52,5 @@ module.exports = {
     ],
     minimize: true,
   },
+
 };

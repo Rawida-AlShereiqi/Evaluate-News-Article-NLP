@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin"),
  CssMinimizerPlugin = require("css-minimizer-webpack-plugin"),
  MiniCssExtractPlugin = require("mini-css-extract-plugin"),
  TerserPlugin = require("terser-webpack-plugin"),
+ { GenerateSW } = require('workbox-webpack-plugin'),
  webpack = require("webpack"),
  path = require("path");
 
@@ -44,7 +45,9 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
         filename: 'style.[contenthash].css'
-    })
+    }),
+    new GenerateSW(
+    ),
   ],
   optimization: {
     minimizer: [
